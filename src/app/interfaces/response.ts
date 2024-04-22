@@ -1,5 +1,7 @@
+import { ILaunch } from "./launch";
+
 export interface IResponse {
-    "docs": object[];
+    "docs": ILaunch[];
     "totalDocs": number;
     "offset": number;
     "limit": number;
