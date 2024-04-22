@@ -2,6 +2,13 @@
 
 <ul>
     <li *ngFor="let launch of launches">
-        {{launch.name}} - {{launch.flight_number}}
+        {{launch.name}} - {{launch.flight_number}} - {{launch.id}}
     </li>
 </ul>
+
+<input type="text" #launchName>
+<button (click)="Search(launchName.value)">Search</button>
+
+<div>
+    {{searchedLaunches.name}}
+</div>

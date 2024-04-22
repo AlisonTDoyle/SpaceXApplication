@@ -18,6 +18,7 @@ export class AppComponent {
   title = 'SpaceXApplication';
 
   launches:ILaunch[] = [];
+  searchedLaunches:ILaunch | any;
 
   constructor(private _spaceXApi:SpaceXAPIService) {
 
@@ -27,5 +28,11 @@ export class AppComponent {
     this._spaceXApi.FetchLaunchPads().subscribe((data) => {
       this.launches = data.docs;
     });
+  }
+
+  protected Search(launchName:string) {
+    this._spaceXApi.FetchLaunchPadWithId(launchName).subscribe((data) => {
+      this.searchedLaunches = data
+    })
   }
 }

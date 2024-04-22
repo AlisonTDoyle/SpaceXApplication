@@ -2,31 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { IResponse } from '../../interfaces/response';
+import { ILaunch } from '../../interfaces/launch';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceXAPIService {
+  // Properties
+  private _apiQueryUrl = "https://api.spacexdata.com/v4/launches/query/"
+  private _apiGeneralLaunchUrl = "https://api.spacexdata.com/v4/launches/"
 
-  private _apiUrl = "https://api.spacexdata.com/v4/launches/query"
-
+  // Constructor
   constructor(private _http: HttpClient) { }
 
-  public Test() {
-    let body = {
-      "options": {
-        "limit": 1
-      },
-      "query": {
-      }
-    }
-
-    return this._http.post<IResponse>(this._apiUrl, body)
-      .pipe(
-        tap((data) => console.log(data))
-      );
-  }
-
+  // Methods
   public FetchLaunchPads() {
     // Set request conditions
     const body: object = {
@@ -52,9 +41,18 @@ export class SpaceXAPIService {
     }
 
     // Send request
-    return this._http.post<IResponse>(this._apiUrl, body)
-    .pipe(
-      tap((data) => {console.log(data)})
+    return this._http.post<IResponse>(this._apiQueryUrl, body)
+      .pipe(
+      // Debug console log
+      // tap((data) => {console.log(data)})
     );
+  }
+
+  public FetchLaunchPadWithId(launchId: string) {
+    return this._http.get<ILaunch>(this._apiGeneralLaunchUrl + launchId)
+      .pipe(
+        // Debug console log
+        tap((data) => { console.log(data) })
+      )
   }
 }
