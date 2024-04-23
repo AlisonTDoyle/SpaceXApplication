@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SpaceXAPIService } from './services/Space-X-API/space-x-api.service';
-import { ILaunch } from './interfaces/launch';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,23 +14,4 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'SpaceXApplication';
-
-  launches:ILaunch[] = [];
-  searchedLaunches:ILaunch | any;
-
-  constructor(private _spaceXApi:SpaceXAPIService) {
-
-  }
-
-  protected test() {
-    this._spaceXApi.FetchLaunchPads().subscribe((data) => {
-      this.launches = data.docs;
-    });
-  }
-
-  protected Search(launchName:string) {
-    this._spaceXApi.FetchLaunchPadWithId(launchName).subscribe((data) => {
-      this.searchedLaunches = data
-    })
-  }
 }

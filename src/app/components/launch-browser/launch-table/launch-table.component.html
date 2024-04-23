@@ -1,0 +1,34 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Launch Name</th>
+            <th>Rocket</th>
+            <th>Launch Pad</th>
+            <th>Date</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let launch of launches">
+            <td>{{launch.name}}</td>
+            <td>{{launch.rocket.name}}</td>
+            <td>{{launch.launchpad.name}}</td>
+            <td>{{launch.date_local}}</td>
+            <td>{{launch.success}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'disabled': !response?.hasPrevPage}">
+            <button class="page-link" [disabled]="!response?.hasPrevPage" (click)="FetchLaunches(response?.prevPage)">Previous</button>
+        </li>
+        <li class="page-item">
+            <button class="page-link" *ngIf="response?.page != null">{{response?.page}}</button>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': !response?.hasNextPage}">
+            <button class="page-link" [disabled]="!response?.hasNextPage" (click)="FetchLaunches(response?.nextPage)">Next</button>
+        </li>
+    </ul>
+</nav>

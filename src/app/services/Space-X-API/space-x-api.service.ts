@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { IResponse } from '../../interfaces/response';
-import { ILaunch } from '../../interfaces/launch';
+import { ILaunchHighLevel } from '../../interfaces/launch';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,12 @@ export class SpaceXAPIService {
   constructor(private _http: HttpClient) { }
 
   // Methods
-  public FetchLaunchPads() {
+  public FetchLaunchPads(page:number)  {
     // Set request conditions
     const body: object = {
       "options": {
         "limit": 10,
+        "page":page,
         "populate": [
           {
             "path": "rocket",
@@ -49,7 +50,7 @@ export class SpaceXAPIService {
   }
 
   public FetchLaunchPadWithId(launchId: string) {
-    return this._http.get<ILaunch>(this._apiGeneralLaunchUrl + launchId)
+    return this._http.get<ILaunchHighLevel>(this._apiGeneralLaunchUrl + launchId)
       .pipe(
         // Debug console log
         tap((data) => { console.log(data) })

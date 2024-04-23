@@ -1,7 +1,7 @@
-import { ILaunch } from "./launch";
+import { ILaunchHighLevel } from "./launch";
 
 export interface IResponse {
-    "docs": ILaunch[];
+    "docs": ILaunchHighLevel[];
     "totalDocs": number;
     "offset": number;
     "limit": number;
