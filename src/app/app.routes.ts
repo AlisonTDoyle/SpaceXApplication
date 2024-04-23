@@ -3,6 +3,6 @@ import { LaunchBrowserComponent } from './routes/launch-browser/launch-browser.c
 import { LaunchDetailsComponent } from './routes/launch-details/launch-details.component';
 
 export const routes: Routes = [
-    {path:"",component:LaunchBrowserComponent},
-    {path:"launch",component:LaunchDetailsComponent}
+    { path: "", component: LaunchBrowserComponent },
+    { path: "launch", component: LaunchDetailsComponent }
 ];

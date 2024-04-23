@@ -1,3 +1,4 @@
+<!-- Launches table -->
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,12 +14,13 @@
             <td>{{launch.name}}</td>
             <td>{{launch.rocket.name}}</td>
             <td>{{launch.launchpad.name}}</td>
-            <td>{{launch.date_local}}</td>
+            <td>{{launch.date_local | date: 'dd MMMM yyyy'}}</td>
             <td>{{launch.success}}</td>
         </tr>
     </tbody>
 </table>
 
+<!-- Table data navigation -->
 <nav>
     <ul class="pagination justify-content-center">
         <li class="page-item" [ngClass]="{'disabled': !response?.hasPrevPage}">

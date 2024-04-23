@@ -15,11 +15,9 @@ import { IResponse } from '../../../interfaces/response';
 })
 
 export class LaunchTableComponent {
-  // Inputs and outputs
+  // Properties
   protected launches:ILaunchHighLevel[] = [];
   protected response:IResponse | any;
-
-  // Properties
 
   // Constructor
   constructor(private _spaceXApi:SpaceXAPIService) {
