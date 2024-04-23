@@ -22,13 +22,17 @@
 <nav>
     <ul class="pagination justify-content-center">
         <li class="page-item" [ngClass]="{'disabled': !response?.hasPrevPage}">
-            <button class="page-link" [disabled]="!response?.hasPrevPage" (click)="FetchLaunches(response?.prevPage)">Previous</button>
+            <button class="page-link" [disabled]="!response?.hasPrevPage" (click)="FetchLaunches(response?.prevPage)">
+                <i class="bi bi-caret-left-fill"></i>
+            </button>
         </li>
         <li class="page-item">
             <button class="page-link" *ngIf="response?.page != null">{{response?.page}}</button>
         </li>
         <li class="page-item" [ngClass]="{'disabled': !response?.hasNextPage}">
-            <button class="page-link" [disabled]="!response?.hasNextPage" (click)="FetchLaunches(response?.nextPage)">Next</button>
+            <button class="page-link" [disabled]="!response?.hasNextPage" (click)="FetchLaunches(response?.nextPage)">
+                <i class="bi bi-caret-right-fill"></i>
+            </button>
         </li>
     </ul>
 </nav>
