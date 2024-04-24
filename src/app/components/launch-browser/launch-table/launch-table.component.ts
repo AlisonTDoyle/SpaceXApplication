@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ILaunchHighLevel } from '../../../interfaces/launch';
+import { ILaunch } from '../../../interfaces/launch';
 import { CommonModule } from '@angular/common';
 import { SpaceXAPIService } from '../../../services/Space-X-API/space-x-api.service';
 import { IResponse } from '../../../interfaces/response';
@@ -21,7 +21,7 @@ export class LaunchTableComponent {
   @Input() launchFilters: string[] = ["*", "*"]
 
   // Properties
-  protected launches: ILaunchHighLevel[] = [];
+  protected launches: ILaunch[] = [];
   protected response: IResponse | any;
 
   // Constructor

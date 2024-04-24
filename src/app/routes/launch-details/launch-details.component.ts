@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ILaunchHighLevel } from '../../interfaces/launch';
+import { ILaunch } from '../../interfaces/launch';
 import { SpaceXAPIService } from '../../services/Space-X-API/space-x-api.service';
 import { LaunchInfoComponent } from '../../components/launch-details/launch-info/launch-info.component';
 import { RocketInfoComponent } from '../../components/launch-details/rocket-info/rocket-info.component';
@@ -21,7 +21,7 @@ export class LaunchDetailsComponent {
 
   // Properties
   launchId:string = "";
-  launch:ILaunchHighLevel | undefined;
+  launch:ILaunch | undefined;
 
   // Constructor
   constructor(private _spaceXApi:SpaceXAPIService) {

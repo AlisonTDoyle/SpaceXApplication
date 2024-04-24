@@ -10,6 +10,9 @@
         </tr>
     </thead>
     <tbody>
+        <tr *ngIf="launches.length == 0" class="align-middle">
+            <td class="text-center" style="height: 26rem;" colspan="5">No Data Available</td>
+        </tr>
         <tr *ngFor="let launch of launches" (click)="GoToLaunchDetails(launch.id)" title="See {{launch.name}} details">
             <td>{{launch.name}}</td>
             <td>{{launch.rocket.name}}</td>

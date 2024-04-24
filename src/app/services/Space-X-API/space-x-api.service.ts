@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { IRequestBody, IResponse } from '../../interfaces/response';
-import { ILaunchHighLevel } from '../../interfaces/launch';
+import { ILaunch } from '../../interfaces/launch';
 import { IRocket } from '../../interfaces/rocket';
 import { ILaunchPad } from '../../interfaces/launchpad';
 
@@ -63,7 +63,7 @@ export class SpaceXAPIService {
   }
 
   public FetchLaunchPadWithId(launchId: string) {
-    return this._http.get<ILaunchHighLevel>(this._apiLaunchUrl + launchId)
+    return this._http.get<ILaunch>(this._apiLaunchUrl + launchId)
       .pipe(
       // Debug console log
       // tap((data) => { console.log(data) })

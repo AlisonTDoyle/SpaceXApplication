@@ -1,17 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { IRocket } from '../../../interfaces/rocket';
-import { ILaunchHighLevel } from '../../../interfaces/launch';
+import { ILaunch } from '../../../interfaces/launch';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-launch-info',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+    , NgTemplateOutlet
+  ],
   templateUrl: './launch-info.component.html',
   styleUrl: './launch-info.component.scss'
 })
 export class LaunchInfoComponent {
   // Inputs and outputs
-  @Input() launch:ILaunchHighLevel | undefined;
+  @Input() launch:ILaunch | undefined;
 
   // Properties
 

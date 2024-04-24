@@ -1,1 +1,10 @@
-<h1>{{launch?.name}}</h1>
+<div class="row">
+    <img src="{{launch?.links?.patch?.small}}" style="width: 200px;">
+    <h1>{{launch?.name}}</h1>
+    <p>Result: <span *ngIf="!launch?.success">Fail</span><span *ngIf="launch?.success">Success</span></p>
+    <p>{{launch?.details}}</p>
+    <p>Crew:</p>
+    <ul>
+        <li *ngFor="let memeber of launch?.crew">{{memeber.name}}</li>
+    </ul>
+</div>
