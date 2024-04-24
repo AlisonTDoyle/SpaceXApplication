@@ -13,3 +13,14 @@ export interface IResponse {
     "prevPage": number;
     "nextPage": number;
 }
+
+export interface IRequestBody {
+    options: {
+        limit: number;
+        page: number;
+        populate: { path: string; select: { name: number } }[];
+    };
+    query: {
+        [key: string]: any; // Allow any key-value pair in query
+    };
+}

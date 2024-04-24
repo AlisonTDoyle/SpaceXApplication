@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { LaunchTableComponent } from '../../components/launch-browser/launch-table/launch-table.component';
 import { TableControllerComponent } from '../../components/launch-browser/table-controller/table-controller.component';
+import { IRocket } from '../../interfaces/rocket';
 
 @Component({
   selector: 'app-launch-browser',
@@ -17,14 +18,12 @@ export class LaunchBrowserComponent {
   @Output() searchParameters = new EventEmitter();
 
   // Properties
+  launchFilter:string[] = [];
 
   // Constructor
 
   // Methods
-  protected InitiateSearch() {
-    let selectedRocket = "";
-    let selectedLaunchPad = "";
-
-    this.searchParameters.emit({selectedRocket, selectedLaunchPad})
+  protected SetLaunchFilters(filters:string[]) {
+    this.launchFilter = filters;
   }
 }

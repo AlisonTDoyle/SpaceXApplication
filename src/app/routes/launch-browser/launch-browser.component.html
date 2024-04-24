@@ -1,2 +1,2 @@
-<app-table-controller></app-table-controller>
-<app-launch-table></app-launch-table>
+<app-table-controller (launchFilters)="SetLaunchFilters($event)"></app-table-controller>
+<app-launch-table [launchFilters]="launchFilter"></app-launch-table>
