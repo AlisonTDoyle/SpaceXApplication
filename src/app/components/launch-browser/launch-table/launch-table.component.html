@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let launch of launches">
+        <tr *ngFor="let launch of launches" (click)="GoToLaunchDetails(launch.id)" title="See {{launch.name}} details">
             <td>{{launch.name}}</td>
             <td>{{launch.rocket.name}}</td>
             <td>{{launch.launchpad.name}}</td>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SpaceXAPIService } from '../../../services/Space-X-API/space-x-api.service';
 import { IResponse } from '../../../interfaces/response';
 import { IRocket } from '../../../interfaces/rocket';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-launch-table',
@@ -24,7 +25,7 @@ export class LaunchTableComponent {
   protected response: IResponse | any;
 
   // Constructor
-  constructor(private _spaceXApi: SpaceXAPIService) {
+  constructor(private _spaceXApi: SpaceXAPIService, private _router:Router) {
     this.FetchLaunches(1)
   }
 
@@ -43,5 +44,17 @@ export class LaunchTableComponent {
       this.launches = data.docs;
       this.response = data;
     });
+  }
+
+  protected GoToLaunchDetails(launchId:string) {
+    // Define navigation extras so that it includes clicked launch
+    let extras = {
+      state: {
+        launchId: launchId
+      } 
+    }
+
+    // Navigate and pass details
+    this._router.navigate(['launch'], extras)
   }
 }
