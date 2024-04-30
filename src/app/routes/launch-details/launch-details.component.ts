@@ -35,7 +35,9 @@ export class LaunchDetailsComponent {
 
     // Fetch needed data
     this._spaceXApi.FetchLaunchPadWithId(this.launchId).subscribe((data) => {
-      this.launch = data;
+      this.launch = data.docs[0];
     });
+
+    console.log("launch-details.component: " + this.launch?.rocket)
   }
 }

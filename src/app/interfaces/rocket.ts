@@ -6,7 +6,13 @@ export interface IRocket {
     active:boolean;
     name:string;
     flickr_images:[];
-    mass:[],
-    diameter:[];
-    height:[];
+    mass:[
+        kg:number
+    ];
+    diameter:[
+        meters: number
+    ];
+    height:[
+        meters: number
+    ];
 }

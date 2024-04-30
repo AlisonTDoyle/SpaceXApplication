@@ -1,1 +1,5 @@
-<p>rocket-info works!</p>
+<p>{{rocket?.name}}</p>
+<p>{{rocket?.description}}</p>
+<p>Success Rate: {{rocket?.success_rate_pct}}</p>
+<img src="{{rocket?.flickr_images}}" style="height: 20rem; width: 30rem;">
+<button [disabled]="rocket?.wikipedia == null" class="btn btn-primary" (click)="GoToRocketArticle()"><i class="bi bi-book"></i> Read More</button>

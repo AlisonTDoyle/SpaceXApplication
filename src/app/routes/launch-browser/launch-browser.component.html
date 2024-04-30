@@ -1,2 +1,13 @@
-<app-table-controller (launchFilters)="SetLaunchFilters($event)"></app-table-controller>
-<app-launch-table [launchFilters]="launchFilter"></app-launch-table>
+<div id="jumbotron">
+    <div class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div>
+                <h1>Launches</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <app-table-controller (launchFilters)="SetLaunchFilters($event)"></app-table-controller>
+    <app-launch-table [launchFilters]="launchFilter"></app-launch-table>
+</div>

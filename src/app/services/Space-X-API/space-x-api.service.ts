@@ -63,7 +63,24 @@ export class SpaceXAPIService {
   }
 
   public FetchLaunchPadWithId(launchId: string) {
-    return this._http.get<ILaunch>(this._apiLaunchUrl + launchId)
+    let body = {
+      "options": {
+        "limit": 10,
+        "populate": [
+          "rocket",
+          "launchpad"
+        ]
+      },
+      "query": {
+        "$or": [
+          {
+            "_id": launchId
+          }
+        ]
+      }
+    }
+
+    return this._http.post<IResponse>(this._apiQueryUrl, body)
       .pipe(
       // Debug console log
       // tap((data) => { console.log(data) })

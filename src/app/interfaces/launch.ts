@@ -17,7 +17,10 @@ export interface ILaunch {
         patch: {
             small: string;
             large: string;
-        }
+        },
+        wikipedia: string;
+        youtube_id:string;
+        article:string
     }
     crew:ICrew[]
 }
