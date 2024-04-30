@@ -24,7 +24,7 @@ export class SpaceXAPIService {
     // Create basic query
     let body: IRequestBody = {
       "options": {
-        "limit": 10,
+        "limit": 8,
         "page": page,
         "populate": [
           {

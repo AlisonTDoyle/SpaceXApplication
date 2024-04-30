@@ -3,3 +3,14 @@
     background-position: top;
     background-size: cover;
 }
+
+#header-wrapper {
+    background: linear-gradient(143deg, rgba(2, 0, 36, 0.24) 0%, rgba(9, 9, 121, 0.24) 36%, rgba(202, 185, 108, 0.24) 100%);
+    backdrop-filter: blur(6px);
+    max-width: 48rem;
+    margin: auto;
+}
+
+#components-wrapper {
+    overflow:hidden
+}

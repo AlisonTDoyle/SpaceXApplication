@@ -1,13 +1,13 @@
 <div id="jumbotron">
     <div class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div>
-                <h1>Launches</h1>
+        <div class="row py-lg-3">
+            <div id="header-wrapper" class="rounded">
+                <h1 class="py-3">Launches</h1>
             </div>
         </div>
     </div>
 </div>
-<div class="container my-3">
+<div class="container my-3" id="components-wrapper">
     <app-table-controller (launchFilters)="SetLaunchFilters($event)"></app-table-controller>
     <app-launch-table [launchFilters]="launchFilter"></app-launch-table>
 </div>
