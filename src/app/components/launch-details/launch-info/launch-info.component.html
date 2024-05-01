@@ -1,15 +1,20 @@
-<div class="row">
-    <app-save-button></app-save-button>
-    <img src="{{launch?.links?.patch?.small}}" style="width: 200px;">
-    <h1>{{launch?.name}}</h1>
-    <p>Result: <span *ngIf="!launch?.success">Fail</span><span *ngIf="launch?.success">Success</span></p>
-    <p>{{launch?.details}}</p>
-    <p>Crew:</p>
-    <ul>
-        <li *ngFor="let memeber of launch?.crew">{{memeber.name}}</li>
-    </ul>
-    <a class="btn btn-primary" (click)="GoToLaunchArticlePage()"><i class="bi bi-book"></i> Read More</a>
-    <div class="rounded">
-        insert video here
+<div class="bg-body-tertiary card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="fs-1">{{launch?.name}}</h1>
+            </div>
+        </div>
+        <h2 class="text-body-secondary fs-5">{{launch?.date_local | date: 'dd MMMM yyyy'}}</h2>
+    </div>
+    <div class="card-body">
+        <div class="">
+            <p>Result: <span *ngIf="!launch?.success">Fail</span><span *ngIf="launch?.success">Success</span></p>
+            <p *ngIf="launch?.details != null">
+                {{launch?.details}}
+            </p>
+        </div>
+        <hr>
+        <div class="text-center"><img src="{{launch?.links?.patch?.small}}" alt="" srcset="{{launch?.links?.patch?.small}}, {{launch?.links?.patch?.large}}"></div>
     </div>
 </div>
