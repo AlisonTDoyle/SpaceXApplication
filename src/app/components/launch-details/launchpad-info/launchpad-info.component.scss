@@ -1,0 +1,21 @@
+$retiredRed: #FF5555;
+$activeGreen: #50FA7B;
+
+.retired {
+    background-color: rgba($color: $retiredRed, $alpha: .2);
+    color: $retiredRed;
+    border: $retiredRed 1px solid;
+    width: fit-content;
+}
+
+.active {
+    background-color: rgba($color: $activeGreen, $alpha: .2);
+    color: $activeGreen;
+    border: $activeGreen 1px solid;
+    width: fit-content;
+}
+
+img {
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}

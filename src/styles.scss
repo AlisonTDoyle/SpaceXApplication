@@ -1,8 +1,17 @@
 // Update bootstrap colors
 $primary: #cab96c;
 $secondary: #2b21db;
-$light: #ebe9fc;
-$dark: #050316;
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #84849A;
+$gray-500: #65657B;
+$gray-600: #535365;
+$gray-700: #40404F;
+$gray-800: #2d2d39;
+$gray-900: #1b1b22;
+$black:    #09090c;
 
 @import './../node_modules/bootstrap/scss/bootstrap';
 @import './../node_modules/bootstrap-icons/font/bootstrap-icons.min.css'

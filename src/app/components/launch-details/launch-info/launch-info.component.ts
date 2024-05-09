@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { IRocket } from '../../../interfaces/rocket';
 import { ILaunch } from '../../../interfaces/launch';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { SaveButtonComponent } from '../save-button/save-button.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-launch-info',
@@ -12,13 +12,14 @@ import { SaveButtonComponent } from '../save-button/save-button.component';
     CommonModule
     , NgTemplateOutlet
     , SaveButtonComponent
+    , YouTubePlayerModule
   ],
   templateUrl: './launch-info.component.html',
   styleUrl: './launch-info.component.scss'
 })
 export class LaunchInfoComponent {
   // Inputs and outputs
-  @Input() launch:ILaunch | undefined;
+  @Input() launch: ILaunch | undefined;
 
   // Properties
 
@@ -28,7 +29,7 @@ export class LaunchInfoComponent {
 
   // Methods
   public GoToLaunchArticlePage() {
-    const target:string = "_blank";
+    const target: string = "_blank";
 
     // Make sure user is brought to some page with more information
     if (this.launch?.links.article != null) {
@@ -36,5 +37,11 @@ export class LaunchInfoComponent {
     } else {
       window.open(this.launch?.links.wikipedia, target)
     }
+  }
+
+  public GoToLaunchRedditThread() {
+    const target: string = "_blank";
+
+    window.open(this.launch?.links.reddit.launch, target)
   }
 }

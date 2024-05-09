@@ -1,1 +1,21 @@
-<p>launchpad-info works!</p>
+<div class="card">
+    <div class="card-header fs-4 text-body-secondary">
+        Launchpad
+    </div>
+    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-8 px-4 py-2">
+                <div class="row">
+                    <h2 class="col-8 mb-0">{{launchpad?.name}}</h2>
+                    <div class="col-4">
+                        <span class="text-capitalize float-end capatalized fs-6 rounded py-1 px-2" [ngClass]="launchpad?.status == 'retired' ? 'retired' : 'active'">{{launchpad?.status}}</span>
+                    </div>
+                </div>
+                <h3 class="fst-italic text-body-secondary fs-6">{{launchpad?.locality}}, {{launchpad?.region}}</h3>
+
+                <p>{{launchpad?.details}}</p>
+            </div>
+            <img src="{{launchpad?.images?.large}}" alt="" class="col-4">
+        </div>
+    </div>
+</div>

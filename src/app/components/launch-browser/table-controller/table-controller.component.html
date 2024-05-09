@@ -1,7 +1,7 @@
-<div class="card p-3 mb-3">
+<div class="card mb-3 p-3">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0">
-            <div class="form-floating">
+            <div class="form-floating mb-3 mb-lg-0">
                 <select class="form-select" id="rocketSelect" #rocketSelect>
                     <option selected value="*">All Rockets</option>
                     <option *ngFor="let rocket of rockets" value="{{rocket.id}}">{{rocket.name}}</option>
@@ -9,8 +9,8 @@
                 <label for="rocketSelect">Rocket</label>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-0">
-            <div class="form-floating">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-floating mb-3 mb-lg-0">
                 <select class="form-select" id="launchpadSelect" #launchpadSelect>
                     <option selected value="*">All Launchpads</option>
                     <option *ngFor="let pad of launchpads" value="{{pad.id}}">{{pad.name}}</option>
@@ -18,7 +18,7 @@
                 <label for="launchpadSelect">Launch Pad</label>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-lg-4">
             <button class="btn btn-primary w-100" (click)="InitialiseFilteredSearch(rocketSelect.value, launchpadSelect.value)">Search</button>
         </div>
     </div>

@@ -1,5 +1,24 @@
-<p>{{rocket?.name}}</p>
-<p>{{rocket?.description}}</p>
-<p>Success Rate: {{rocket?.success_rate_pct}}</p>
-<img src="{{rocket?.flickr_images}}" style="height: 20rem; width: 30rem;">
-<button [disabled]="rocket?.wikipedia == null" class="btn btn-primary" (click)="GoToRocketArticle()"><i class="bi bi-book"></i> Read More</button>
+<div class="card mb-4">
+    <div class="card-header fs-4 text-body-secondary">
+        Rocket
+    </div>
+    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-8 px-4 py-3">
+                <h2>{{rocket?.name}}</h2>
+                <p>{{rocket?.description}}</p>
+
+                <!-- Rocket stats -->
+                <p class="mb-1"><span class="fw-semibold">Success Rate:</span> {{rocket?.success_rate_pct}}%</p>
+                <p class="mb-1"><span class="fw-semibold">Height:</span> {{rocket?.height?.meters}}m</p>
+                <p class="mb-3"><span class="fw-semibold">Diameter:</span> {{rocket?.diameter?.meters}}m</p>
+
+                <!-- Read more button -->
+                <button [disabled]="rocket?.wikipedia == null" class="bottom-0 btn btn-outline-primary w-100" (click)="GoToRocketArticle()"><i
+                        class="bi bi-book"></i> Read More</button>
+            </div>
+            <!-- Accent image -->
+            <img src="{{rocket?.flickr_images}}" class="col-4">
+        </div>
+    </div>
+</div>

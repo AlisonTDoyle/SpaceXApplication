@@ -1,3 +1,11 @@
-<app-launch-info [launch]="launch"></app-launch-info>
-<app-rocket-info [rocket]="launch?.rocket"></app-rocket-info>
-<app-launchpad-info></app-launchpad-info>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+            <app-launch-info [launch]="launch"></app-launch-info>
+        </div>
+        <div class="col-12 col-lg-6">
+            <app-rocket-info [rocket]="launch?.rocket"></app-rocket-info>
+            <app-launchpad-info [launchpad]="launch?.launchpad"></app-launchpad-info>
+        </div>
+    </div>
+</div>

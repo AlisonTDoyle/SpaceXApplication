@@ -1,20 +1,42 @@
-<div class="bg-body-tertiary card">
+<div class="bg-body-tertiary card h-100">
     <div class="card-header">
         <div class="row">
+            <div class="col-2">
+                <img src="{{launch?.links?.patch?.small}}" alt=""
+                    srcset="{{launch?.links?.patch?.small}}, {{launch?.links?.patch?.large}}">
+            </div>
             <div class="col-6">
                 <h1 class="fs-1">{{launch?.name}}</h1>
+                <h2 class="text-body-secondary fs-5">{{launch?.date_local | date: 'dd MMMM yyyy'}}</h2>
+            </div>
+            <div class="col-4">
+                <app-save-button *ngIf="launch !=null" [launch]="launch" class="float-end"></app-save-button>
             </div>
         </div>
-        <h2 class="text-body-secondary fs-5">{{launch?.date_local | date: 'dd MMMM yyyy'}}</h2>
     </div>
     <div class="card-body">
         <div class="">
-            <p>Result: <span *ngIf="!launch?.success">Fail</span><span *ngIf="launch?.success">Success</span></p>
+            <p><span class="fw-semibold">Result: </span><span *ngIf="!launch?.success">Fail</span><span
+                    *ngIf="launch?.success">Success</span></p>
             <p *ngIf="launch?.details != null">
-                {{launch?.details}}
+                <span class="fw-semibold">Details:</span> {{launch?.details}}
             </p>
         </div>
-        <hr>
-        <div class="text-center"><img src="{{launch?.links?.patch?.small}}" alt="" srcset="{{launch?.links?.patch?.small}}, {{launch?.links?.patch?.large}}"></div>
+        <div class="row">
+            <div class="col-6">
+                <button [disabled]="launch?.links?.wikipedia == null"
+                    class="bottom-0 btn btn-outline-primary w-100 mt-3" (click)="GoToLaunchArticlePage()"><i
+                        class="bi bi-book"></i> Read
+                    More</button>
+            </div>
+            <div class="col-6">
+                <button [disabled]="launch?.links?.reddit?.launch == null" class="bottom-0 btn btn-outline-primary w-100 mt-3"
+                    (click)="GoToLaunchRedditThread()"><i class="bi bi-reddit"></i> Read
+                    More</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer p-0 overflow-hidden">
+
     </div>
 </div>

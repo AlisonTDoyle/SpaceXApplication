@@ -1,4 +1,5 @@
 import { ICrew } from "./crew";
+import { ILaunchPad } from "./launchpad";
 import { IRocket } from "./rocket";
 
 export interface ILaunch {
@@ -7,10 +8,7 @@ export interface ILaunch {
     details: string;
     flight_number: number;
     rocket: IRocket;
-    launchpad: {
-        name: string;
-        id: string;
-    };
+    launchpad: ILaunchPad;
     date_local: string,
     success: boolean;
     links: {
@@ -20,7 +18,10 @@ export interface ILaunch {
         },
         wikipedia: string;
         youtube_id:string;
-        article:string
+        article:string;
+        reddit: {
+            launch:string;
+        }
     }
     crew:ICrew[]
 }

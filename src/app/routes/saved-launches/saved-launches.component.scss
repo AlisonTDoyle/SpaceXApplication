@@ -1,0 +1,12 @@
+#jumbotron {
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fweatherboy.com%2Fwp-content%2Fuploads%2F2018%2F09%2FSpaceXmoon1.jpg&f=1&nofb=1&ipt=2520938b27af7049ab2f82162b6d890b4243fdec8e8d244b05651013030c8f9a&ipo=images');
+    background-position: center;
+    background-size: cover;
+}
+
+#header-wrapper {
+    background: linear-gradient(143deg, rgba(173, 170, 224, 0.24) 0%, rgba(21, 21, 66, 0.24) 36%, rgba(29, 28, 22, 0.24) 100%);
+    backdrop-filter: blur(6px);
+    max-width: 48rem;
+    margin: auto;
+}

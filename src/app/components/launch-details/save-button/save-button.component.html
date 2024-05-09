@@ -1,1 +1,4 @@
-<button class="btn btn-outline-primary" style="height: 4rem; width: 4rem;"><i class="bi bi-bookmark fs-1"></i></button>
+<button class="btn btn-outline-primary m-2 py-1 px-3" (click)="SaveButtonClicked()">
+    <i class="bi bi-bookmark fs-1" *ngIf="!launchSaved" title="Launch not Saved"></i>
+    <i class="bi bi-bookmark-fill fs-1" *ngIf="launchSaved" title="Launch Saved"></i>
+</button>

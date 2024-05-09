@@ -8,7 +8,7 @@ import { IRocket } from '../../../interfaces/rocket';
   templateUrl: './rocket-info.component.html',
   styleUrl: './rocket-info.component.scss'
 })
-export class RocketInfoComponent implements OnInit {
+export class RocketInfoComponent {
   // Imports and outputs
   @Input() rocket:IRocket|undefined;
 
@@ -17,10 +17,6 @@ export class RocketInfoComponent implements OnInit {
   // Constrcutors
 
   // Methods
-  ngOnInit(): void {
-    console.log("rocket-info.component" + this.rocket)
-  }
-
   protected GoToRocketArticle() {
     let target = "_blank";
 
