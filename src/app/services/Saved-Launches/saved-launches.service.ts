@@ -15,10 +15,11 @@ export class SavedLaunchesService {
 
   // Methods
   public FetchSavedLaunches() {
-    return this._http.get<ISavedLaunch>(this._devApiUrl)
+    return this._http.get<ISavedLaunch[]>(this._devApiUrl)
       .pipe(
         tap((data) => {
-          console.log(data)
+          // Debug message
+          // console.log('DeleteLaunch(): ' + JSON.stringify(data))
         }),
         catchError(this.HandleError)
       );
@@ -27,7 +28,10 @@ export class SavedLaunchesService {
   public AddLaunch(launchToSave: ISavedLaunch) {
     return this._http.post<ISavedLaunch>(this._devApiUrl, launchToSave)
       .pipe(
-        tap(data => console.log('AddLaunch(): ' + JSON.stringify(data))
+        tap(data => {
+          // Debug message
+          // console.log('AddLaunch(): ' + JSON.stringify(data))
+        }
         ),
         catchError(this.HandleError)
       );
@@ -36,7 +40,10 @@ export class SavedLaunchesService {
   public GetLaunchByLaunchId(savedLaunchId: string) {
     return this._http.get<ISavedLaunch>(this._devApiUrl + "/" + savedLaunchId)
       .pipe(
-        tap(data => console.log('GetLaunch(): ' + JSON.stringify(data))
+        tap((data) => {
+          // Debug message
+          // console.log('DeleteLaunch(): ' + JSON.stringify(data))
+        }
         ),
         catchError(this.HandleError)
       );
@@ -46,7 +53,10 @@ export class SavedLaunchesService {
     const deleteItemUrl = this._devApiUrl + "/" + savedLaunchId;
     return this._http.delete(deleteItemUrl)
       .pipe(
-        tap(data => console.log('DeleteLaunch(): ' + JSON.stringify(data))
+        tap((data) => {
+          // Debug message
+          // console.log('DeleteLaunch(): ' + JSON.stringify(data))
+        }
         ),
         catchError(this.HandleError)
       );
