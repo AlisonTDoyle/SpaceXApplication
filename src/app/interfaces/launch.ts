@@ -6,7 +6,10 @@ export interface ILaunch {
     id: string;
     name: string;
     details: string;
-    flight_number: number;
+    fairings: {
+        recovery_attempt:boolean
+        recovered: boolean
+    }
     rocket: IRocket;
     launchpad: ILaunchPad;
     date_local: string,

@@ -16,13 +16,29 @@
     </div>
     <div class="card-body">
         <div class="">
-            <p><span class="fw-semibold">Result: </span><span *ngIf="!launch?.success">Fail</span><span
-                    *ngIf="launch?.success">Success</span></p>
+            <!-- Launch Info -->
+            <p>
+                <!-- Launch result -->
+                <span class="fw-semibold">Result: </span><span *ngIf="!launch?.success">Fail</span><span
+                    *ngIf="launch?.success">Success</span>
+            </p>
             <p *ngIf="launch?.details != null">
+                <!-- Details about launch -->
                 <span class="fw-semibold">Details:</span> {{launch?.details}}
             </p>
+            <p *ngIf="launch?.fairings != null">
+                <!-- Fairings info -->
+                <span class="fw-semibold">Fairings: </span>
+                <span *ngIf="launch?.fairings?.recovery_attempt == true">Attempted recovery,
+                    <span *ngIf="launch?.fairings?.recovered; else failMessage">{{successfulAttemptMessage}}</span>
+                    <ng-template #failMessage>
+                        {{failedAttemptMessage}}
+                    </ng-template>
+                </span>
+                <span *ngIf="launch?.fairings?.recovery_attempt == false">No recovery attempted</span>
+            </p>
         </div>
-        <div class="row">
+        <div class="row bottom-0">
             <div class="col-6">
                 <button [disabled]="launch?.links?.wikipedia == null"
                     class="bottom-0 btn btn-outline-primary w-100 mt-3" (click)="GoToLaunchArticlePage()"><i
@@ -30,13 +46,16 @@
                     More</button>
             </div>
             <div class="col-6">
-                <button [disabled]="launch?.links?.reddit?.launch == null" class="bottom-0 btn btn-outline-primary w-100 mt-3"
-                    (click)="GoToLaunchRedditThread()"><i class="bi bi-reddit"></i> Read
+                <button [disabled]="launch?.links?.reddit?.launch == null"
+                    class="bottom-0 btn btn-outline-primary w-100 mt-3" (click)="GoToLaunchRedditThread()"><i
+                        class="bi bi-reddit"></i> Read
                     More</button>
             </div>
         </div>
     </div>
     <div class="card-footer p-0 overflow-hidden">
-
+        <div style="width: fit-content; margin: auto;">
+            <youtube-player videoId="{{launch?.links?.youtube_id}}" width="fit-content" height="fit-content" />
+        </div>
     </div>
 </div>

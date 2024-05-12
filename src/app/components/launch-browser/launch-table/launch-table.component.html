@@ -1,29 +1,31 @@
 <!-- Launches table -->
 
-<table class="table table-striped border table-hover">
-    <thead>
-        <tr>
-            <th id="launchCol">Launch Name</th>
-            <th id="rocketCol">Rocket</th>
-            <th id="launchpadCol">Launch Pad</th>
-            <th id="dateCol">Date</th>
-            <th id="resultCol">Result</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngIf="launches.length == 0" class="align-middle">
-            <td class="text-center" style="height: 26rem;" colspan="5">No Data Available</td>
-        </tr>
-        <tr *ngFor="let launch of launches" (click)="GoToLaunchDetails(launch.id)" title="See {{launch.name}} details">
-            <td>{{launch.name}}</td>
-            <td>{{launch.rocket.name}}</td>
-            <td>{{launch.launchpad.name}}</td>
-            <td>{{launch.date_local | date: 'dd MMMM yyyy'}}</td>
-            <td><span *ngIf="!launch?.success">Fail</span><span
-                *ngIf="launch?.success">Success</span></td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-striped border table-hover">
+        <thead>
+            <tr>
+                <th id="launchCol">Launch Name</th>
+                <th id="rocketCol">Rocket</th>
+                <th id="launchpadCol">Launch Pad</th>
+                <th id="dateCol">Date</th>
+                <th id="resultCol">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="launches.length == 0" class="align-middle">
+                <td class="text-center" style="height: 26rem;" colspan="5">No Data Available</td>
+            </tr>
+            <tr *ngFor="let launch of launches" (click)="GoToLaunchDetails(launch.id)" title="See {{launch.name}} details">
+                <td>{{launch.name}}</td>
+                <td>{{launch.rocket.name}}</td>
+                <td>{{launch.launchpad.name}}</td>
+                <td>{{launch.date_local | date: 'dd MMMM yyyy'}}</td>
+                <td><span *ngIf="!launch?.success" class="fail p-1 rounded">Fail</span><span
+                    *ngIf="launch?.success" class="success p-1 rounded">Success</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <!-- Table data navigation -->

@@ -1,3 +1,6 @@
+$failRed: #FF5555;
+$successGreen: #50FA7B;
+
 tr {
     cursor: pointer;
 }
@@ -6,18 +9,16 @@ tr {
     width: 22rem;
 }
 
-#rocketCol {
-    
+.fail {
+    background-color: rgba($color: $failRed, $alpha: .2);
+    color: $failRed;
+    border: $failRed 1px solid;
+    width: fit-content;
 }
 
-#launchpadCol {
-    
-}
-
-#dateCol {
-    
-}
-
-#resultCol {
-    
+.success {
+    background-color: rgba($color: $successGreen, $alpha: .2);
+    color: $successGreen;
+    border: $successGreen 1px solid;
+    width: fit-content;
 }

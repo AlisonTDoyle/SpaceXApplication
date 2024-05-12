@@ -1,0 +1,22 @@
+$failRed: #FF5555;
+$successGreen: #50FA7B;
+
+.card {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.fail {
+    background-color: rgba($color: $failRed, $alpha: .2);
+    color: $failRed;
+    border: $failRed 1px solid;
+    width: fit-content;
+}
+
+.success {
+    background-color: rgba($color: $successGreen, $alpha: .2);
+    color: $successGreen;
+    border: $successGreen 1px solid;
+    width: fit-content;
+}

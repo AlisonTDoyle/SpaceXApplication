@@ -1,18 +1,25 @@
 <div class="card my-3">
     <div class="card-header fs-5">
         <div class="row">
-            <div class="col-8">{{savedLaunch?.name}}</div>
-            <div class="col-4">
-                <app-remove-button class="float-right" [savedLaunch]="savedLaunch" (triggerRefresh)="TriggerRefresh()"></app-remove-button>
+            <div class="col-9">{{savedLaunch?.name}}</div>
+            <div class="col-3">
+                <app-remove-button class="float-right" [savedLaunch]="savedLaunch"
+                    (triggerRefresh)="TriggerRefresh()"></app-remove-button>
             </div>
         </div>
     </div>
-    <img src="{{savedLaunch?.patchUrl}}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-        </ul>
+    <div (click)="GoToLaunchDetails()">
+        <img src="{{savedLaunch?.patchUrl}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center"><span *ngIf="!savedLaunch?.result" class="fail p-1 rounded mb-3">Failed Launch</span><span
+                    *ngIf="savedLaunch?.result" class="success p-1 rounded mb-3">Successful Launch</span></li>
+                <li class="list-group-item">
+                    <p>Date: {{savedLaunch?.date | date: 'dd MMMM yyyy'}}</p>
+                    <p>Rocket: {{savedLaunch?.rocket}}</p>
+                    <p>Launchpad: {{savedLaunch?.launchpad}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

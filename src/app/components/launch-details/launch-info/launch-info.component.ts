@@ -22,6 +22,8 @@ export class LaunchInfoComponent {
   @Input() launch: ILaunch | undefined;
 
   // Properties
+  protected successfulAttemptMessage = "fairing recovered";
+  protected failedAttemptMessage = "fairing not recovered";
 
   // Constructor
   constructor() {

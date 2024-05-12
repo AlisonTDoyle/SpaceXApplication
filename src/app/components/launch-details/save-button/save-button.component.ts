@@ -56,9 +56,11 @@ export class SaveButtonComponent implements OnInit {
       rocket: this.launch.rocket.name,
       launchpad: this.launch.launchpad.name,
       date: this.launch.date_local,
-      result: this.launch.result,
+      result: this.launch.success,
       patchUrl: this.launch.links.patch.small
     }
+
+    console.log(launchToSave.result)
 
     // Save to db
     this._savedLaunchesService.AddLaunch(launchToSave).subscribe(() => {
